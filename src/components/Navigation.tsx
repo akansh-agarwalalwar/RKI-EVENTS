@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon, Heart, MessageCircle } from "lucide-react";
+import { Menu, X, Sun, Moon, Heart, MessageCircle, LogIn } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import React from "react";
@@ -57,13 +57,13 @@ const Navigation = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`font-inter text-sm font-medium transition-colors hover:text-rose ${
-                    isActive(link.path) ? "text-rose" : "text-foreground"
-                  }`}
+                  className={`font-inter text-sm font-medium transition-colors hover:text-rose ${isActive(link.path) ? "text-rose" : "text-foreground"
+                    }`}
                 >
                   {link.name}
                 </Link>
               ))}
+
               <Button variant="hero" size="sm" asChild>
                 <Link to="/contact">Start Planning</Link>
               </Button>
@@ -84,6 +84,12 @@ const Navigation = () => {
                   <Moon size={18} />
                 </button>
               </div>
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/admin/login" className="flex items-center gap-2">
+                  <LogIn size={16} />
+                  Login
+                </Link>
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -105,13 +111,18 @@ const Navigation = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`font-inter text-sm font-medium transition-colors hover:text-rose ${
-                      isActive(link.path) ? "text-rose" : "text-foreground"
-                    }`}
+                    className={`font-inter text-sm font-medium transition-colors hover:text-rose ${isActive(link.path) ? "text-rose" : "text-foreground"
+                      }`}
                   >
                     {link.name}
                   </Link>
                 ))}
+                <Button variant="outline" size="sm" className="w-fit" asChild>
+                  <Link to="/admin/login" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                    <LogIn size={16} />
+                    Login
+                  </Link>
+                </Button>
                 <Button variant="hero" size="sm" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Start Planning

@@ -46,6 +46,7 @@ function AnimatedRoutes() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Navigate to="/admin/login" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     );
@@ -70,6 +71,7 @@ function AnimatedRoutes() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Navigate to="/admin/login" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </CSSTransition>
